@@ -11,10 +11,17 @@ export class AuthService {
         this.token = new BehaviorSubject<string>("");
   }
 
-    login():Promise<any> {
+    login(email:string, password:string):Promise<any> {
             return this.http.post("http://angular-eval.herokuapp.com/api/v1/login",{
-                email:"contact@thomaschevalier.fr",
-                password: "azerty"
+                email,
+                password
             }).toPromise().then((resp:any) =>{this.token.next(resp.token)});
+    }
+
+    logout():Promise<void>{
+        return new Promise<void>((res, rej) =>{
+            this.token.next('');
+            res();
+        })
     }
 }

@@ -1,0 +1,74 @@
+<form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+    <div class="form-floating mb-3">
+
+        <input type="text"
+               class="form-control"
+               id="name"
+               placeholder="titre de l'offre"
+               [(ngModel)]="offer.name"
+               formControlName="name">
+        <label for="name">Titre de l'offre</label>
+        <app-errors-form
+             [control]="form.controls.name"
+             controlLabel="Titre de l'offre"
+            ></app-errors-form>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text"
+               class="form-control"
+               id="description"
+               placeholder="description de l'offre"
+               [(ngModel)]="offer.description"
+               formControlName="description">
+        <label for="description">Description de l'offre</label>
+        <app-errors-form
+            [control]="form.controls.description"
+            controlLabel="Description de l'offre"
+        ></app-errors-form>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="date"
+               class="form-control"
+               id="dateBegin"
+               [(ngModel)]="offer.dateBegin"
+               formControlName="dateBegin">
+        <label for="dateBegin">Date de début</label>
+        <app-errors-form
+            [control]="form.controls.dateBegin"
+            controlLabel="Date de début"
+        ></app-errors-form>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="date"
+               class="form-control"
+               id="dateEnd"
+               [(ngModel)]="offer.dateEnd"
+               formControlName="dateEnd">
+        <label for="dateEnd">Date de fin</label>
+        <app-errors-form
+            [control]="form.controls.dateEnd"
+            controlLabel="Date de début"
+        ></app-errors-form>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="url"
+               class="form-control"
+               id="imgUrl"
+               [(ngModel)]="offer.imgUrl"
+               formControlName="imgUrl">
+        <label for="imgUrl">Image de l'offre</label>
+        <app-errors-form
+            [control]="form.controls.imgUrl"
+            controlLabel="Image de l'offre"
+        ></app-errors-form>
+    </div>
+    <div class="row col-6 mx-auto">
+        <button class="btn btn-primary btn-lg"
+                [disabled]="form.invalid"
+                type="submit"
+        >
+            {{submitLabel}}
+        </button>
+        <a routerLink="/offers" routerLinkActive="active" class="btn btn-outline-dark my-2">RETOUR</a>
+    </div>
+</form>

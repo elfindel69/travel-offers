@@ -12,11 +12,15 @@
 
         <div class="d-flex justify-content-between mb-3">
             <h2>NOS OFFRES</h2>
-            <button class="btn btn-success btn-lg">NOUVELLE OFFRE</button>
+            <button class="btn btn-success btn-lg"
+            routerLink="/offers/add" routerLinkActive="active"
+            >NOUVELLE OFFRE</button>
         </div>
 
         <ng-container *ngIf="offers.length > 0">
-            <div *ngFor="let offer of offers" class="card mb-3 h-100">
+            <div *ngFor="let offer of offers"
+                 [routerLink]="['/offers',offer.id]" routerLinkActive="router-link-active"
+                 class="card mb-3 h-100">
                 <div class="row g-0">
                     <div class="col-md-4 mx-auto">
                         <img [src]="offer.imgUrl" style="width: 400px">

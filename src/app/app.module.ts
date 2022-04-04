@@ -11,6 +11,11 @@ import {HttpClientModule} from '@angular/common/http';
 import { ErrorComponent } from './views/error/error.component';
 import { SingleOfferComponent } from './views/single-offer/single-offer.component';
 import { LoginComponent } from './views/login/login.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { OffersFormComponent } from './components/offers-form/offers-form.component';
+import { AddOfferComponent } from './views/add-offer/add-offer.component';
+import { EditOfferComponent } from './views/edit-offer/edit-offer.component';
+import {ErrorsFormComponent} from "./components/errors-form/errors-form.component";
 
 @NgModule({
   declarations: [
@@ -19,12 +24,18 @@ import { LoginComponent } from './views/login/login.component';
     OffersComponent,
     ErrorComponent,
     SingleOfferComponent,
-    LoginComponent
+    LoginComponent,
+    OffersFormComponent,
+    ErrorsFormComponent,
+    AddOfferComponent,
+    EditOfferComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-      HttpClientModule
+      HttpClientModule,
+      FormsModule,
+      ReactiveFormsModule
   ],
   providers: [
       AuthService,
